@@ -17,7 +17,7 @@ const Navbar = () => {
     <div className='fixed w-full h-20 shadow-xl z-[100] bg-gradient-to-b from-[#3b383d] to-[#000000]'>
       <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
         <Image 
-        src = "/../public/assets/skills/logo.png" 
+        src = "/assets/skills/logo.png" 
         alt = "/" 
         width='150' 
         height='50'
@@ -52,7 +52,7 @@ const Navbar = () => {
           <div>
             <div className='flex w-full items-center justify-between'>
               <Image 
-                 src = "/../public/assets/skills/logo.png" 
+                 src = "/portfolio\public\assets\skills\logo.webp"
                 alt = "/" 
                 width='150' 
                 height='50'
