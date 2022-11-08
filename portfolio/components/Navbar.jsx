@@ -17,14 +17,15 @@ const Navbar = () => {
   return (
     <div className='fixed w-full h-20 shadow-xl z-[100] bg-gradient-to-b from-[#3b383d] to-[#000000]'>
       <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
-        <Image 
-        src = {"/assets/skills/logo.png"} 
-        alt = "/" 
-        width='150' 
-        height='50'
-        loading='eager'
-        />
-
+        <picture>
+          <source type="image/webp" />
+          <img 
+            srcSet="/assets/skills/logo.webp"
+            src="/assets/skills/logo.webp"
+            alt = "/" 
+            width='150' 
+            height='50' />
+        </picture>
         <div>
           <ul className='hidden md:flex text-[#fff]'>
             <Link href='/'>
@@ -53,12 +54,15 @@ const Navbar = () => {
                             : 'fixed left-[-100%] top-0 bg-gradient-to-t from-[#000000] to-[#3b383d] p-10 ease-in duration-500'}>
           <div>
             <div className='flex w-full items-center justify-between'>
-              <Image 
-                 src = "/portfolio\public\assets\skills\logo.webp"
+            <picture>
+              <source type="image/webp" />
+              <img 
+                srcSet="/assets/skills/logo.webp"
+                src="/assets/skills/logo.webp"
                 alt = "/" 
                 width='150' 
-                height='50'
-              />
+                height='50' />
+            </picture>
               <div onClick={handleNav} className='rounded-full shadow-sm shadow-gray-300 p-3 cursor-pointer'>
                 <AiOutlineClose size={25} color="white" />
               </div>
