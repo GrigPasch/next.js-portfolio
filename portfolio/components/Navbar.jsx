@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, {useState} from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import {AiOutlineClose, AiOutlineMenu, AiOutlineMail} from 'react-icons/ai'
 import { FaLinkedinIn, FaInstagramSquare, FaGithub, FaHandScissors } from 'react-icons/fa'
