@@ -23,8 +23,8 @@ const Navbar = () => {
             srcSet="/assets/skills/logo.webp"
             src="/assets/skills/logo.webp"
             alt = "/" 
-            width='150' 
-            height='50' />
+            width={150}
+            height={50} />
         </picture>
         <div>
           <ul className='hidden md:flex text-[#fff]'>
@@ -60,8 +60,8 @@ const Navbar = () => {
                 srcSet="/assets/skills/logo.webp"
                 src="/assets/skills/logo.webp"
                 alt = "/" 
-                width='150' 
-                height='50' />
+                width={150} 
+                height={50} />
             </picture>
               <div onClick={handleNav} className='rounded-full shadow-sm shadow-gray-300 p-3 cursor-pointer'>
                 <AiOutlineClose size={25} color="white" />
