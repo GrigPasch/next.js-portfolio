@@ -21,7 +21,7 @@ const Navbar = () => {
           <img 
             srcSet="/assets/skills/logo.webp"
             src="/assets/skills/logo.webp"
-            alt = "/" 
+            alt = "Generic logo" 
             width={150}
             height={50} />
         </picture>
@@ -58,7 +58,7 @@ const Navbar = () => {
               <img 
                 srcSet="/assets/skills/logo.webp"
                 src="/assets/skills/logo.webp"
-                alt = "/" 
+                alt = "Generic logo" 
                 width={150} 
                 height={50} />
             </picture>
