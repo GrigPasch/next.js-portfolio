@@ -94,7 +94,7 @@ const Navbar = () => {
               <p className='uppercase tracking-widest text-[#a0a0a0]'>Let's connect</p>
               <div className='flex items-center justify-between my-4 w-full sm:w-[80%]'>
                 <div className='rounded-full shadow-sm shadow-gray-500 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
-                  <FaLinkedinIn size={25} color='fff'/>
+                <a href="https://www.linkedin.com/in/grigorios-paschalidis-b62944167/" target="_blank" rel="noreferrer"><FaLinkedinIn size={25} color='fff'/></a>
                 </div>
                 <div className='rounded-full shadow-sm shadow-gray-500 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
                   <FaInstagramSquare size={25} color='fff'/>
