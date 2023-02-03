@@ -33,7 +33,7 @@ const About = () => {
                         className='rounded-xl'
                         srcSet="/assets/skills/me.webp"
                         src="/assets/skills/me.webp"
-                        alt = "Picture of moi"   
+                        alt = "Picture of me :)"   
                     />
                 </picture>
             </div>
