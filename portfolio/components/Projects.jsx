@@ -21,10 +21,10 @@ const Projects = () => {
                     height={400}
                 />
                 <div className='hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]'>
-                    <h3 className='text-2xl text-[#fff] tracking-wider text-center'>
+                    <p className='text-lg text-[#fff] tracking-wider text-center'>
                         I am working on this part of the site on what to add, so until further notice, here is a cute picture of my dog Olaf for the time being :) . 
                         He is a stray rescue, mixed German Shepherd and almost 11 years old, so you know, say hi to him.
-                    </h3>
+                    </p>
                 </div>
             </div>
         </div>
