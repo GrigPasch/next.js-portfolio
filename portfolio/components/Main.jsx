@@ -1,12 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react'
+import Link from 'next/link'
 import { FaLinkedinIn, FaInstagramSquare, FaGithub } from 'react-icons/fa'
 import { BsPersonLinesFill } from 'react-icons/bs'
 import { AiOutlineMail } from 'react-icons/ai'
 
 const Main = () => {
   return (
-    <div className='w-full h-screen text-center'>
+    <div id='home' className='w-full h-screen text-center'>
         <div className ='max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center items-center'>
             <div>
               <p className='uppercase text-sm tracking-widest text-gray-400'>
@@ -23,13 +24,17 @@ const Main = () => {
               </p>
               <div className='flex items-center justify-center max-w-[330px] m-auto pt-4'>
                 <div className='rounded-full shadow-inner shadow-[#3e76ec]  p-6 cursor-pointer hover:scale-110 ease-in duration-300 hover:shadow-lg hover:shadow-[#3e76ec] m-[-4px]'>
-                  <FaLinkedinIn size={25} />
+                  <Link href='https://www.linkedin.com/in/grigorios-paschalidis-b62944167/'>
+                    <FaLinkedinIn size={25} />
+                  </Link>
                 </div>
                 <div className='rounded-full shadow-inner  shadow-[#ffce01] p-6 cursor-pointer hover:scale-110 ease-in duration-300 hover:shadow-lg hover:shadow-[#ffce01] m-[-4px]'>
                   <FaInstagramSquare size={25} />
                 </div>
                 <div className='rounded-full shadow-inner shadow-[#000000] p-6 cursor-pointer hover:scale-110 ease-in duration-300 hover:shadow-lg hover:shadow-[#000000] m-[-4px]'>
+                <Link href='https://github.com/GrigPasch'>
                   <FaGithub size={25} />
+                </Link>
                 </div>
               </div>
               <div className='flex items-center  justify-center max-w-[330px] m-auto py-4 h-0'>

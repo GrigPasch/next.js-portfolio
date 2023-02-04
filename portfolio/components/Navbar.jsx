@@ -1,46 +1,61 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Link from 'next/link'
+import logoImg from '../public/assets/skills/logo.webp'
 import {AiOutlineClose, AiOutlineMenu, AiOutlineMail} from 'react-icons/ai'
 import { FaLinkedinIn, FaInstagramSquare, FaGithub, FaHandScissors } from 'react-icons/fa'
 import { BsPersonLinesFill } from 'react-icons/bs'
+import Image from 'next/image'
 
 
 const Navbar = () => {
-  const [nav,setNav] = useState(false)
+  const [nav,setNav] = useState(false);
+  const [shadow, setShadow] = useState(false);
 
   const handleNav = () =>{
-    setNav(!nav)
+    setNav(!nav);
   }
 
+  useEffect(() => {
+    const handleShadow = () =>{
+      if (window.scrollY >= 90) {
+        setShadow(true);
+      }
+      else {
+        setShadow(false);
+      }
+    }
+    window.addEventListener('scroll', handleShadow);
+  }, []);
+
   return (
-    <div className='fixed w-full h-20 shadow-xl z-[100] bg-gradient-to-b from-[#3b383d] to-[#000000]'>
+    <div className={shadow ? 'fixed w-full h-20 shadow-xl z-[100] bg-gradient-to-b from-[#3b383d] to-[#000000]' : 
+    'fixed w-full h-20 z-[100] bg-gradient-to-b from-[#3b383d] to-[#000000]'}>
       <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
-        <picture>
-          <source type="image/webp" />
-          <img 
-            srcSet="/assets/skills/logo.webp"
-            src="/assets/skills/logo.webp"
-            alt = "Generic logo" 
+        <Link href='/'>
+          <Image 
+            src={logoImg} 
+            alt='/'
             width={150}
-            height={50} />
-        </picture>
+            height={50} 
+          />
+        </Link>
         <div>
           <ul className='hidden md:flex text-[#fff]'>
-            <Link href='/'>
+            <Link href='/#home' scroll={false}>
               <li className='ml-10 text-sm uppercase hover:border-b'>Home</li>
             </Link>
-            <Link href='/'>
+            <Link href='/#about' scroll={false}>
               <li className='ml-10 text-sm uppercase hover:border-b'>About</li>
             </Link>
-            <Link href='/'>
+            <Link href='/#skills' scroll={false}>
               <li className='ml-10 text-sm uppercase hover:border-b hover:border-[#fff]'>Skills</li>
             </Link>
-            <Link href='/'>
+            <Link href='/#projects' scroll={false}>
               <li className='ml-10 text-sm uppercase hover:border-b'>Projects</li>
             </Link>
-            <Link href='/'>
-              <li className='ml-10 text-sm uppercase hover:border-b'>Contact</li>
+            <Link href='/#contact' scroll={false}>
+              <li className='ml-10 text-sm uppercase hover:border-b '>Contact</li>
             </Link>
           </ul>
           <div onClick={handleNav} className='md:hidden'>
@@ -74,19 +89,19 @@ const Navbar = () => {
           </div>
           <div className='py-4 flex flex-col'>
             <ul className='uppercase '>
-              <Link className='hover:border-b-white' href='/'>
+              <Link className='hover:border-b-white' href='/#home'>
                 <li className=' py-4 text-sm text-[#fff]'>Home</li>
               </Link>
-              <Link href='/'>
+              <Link href='/#about'>
                 <li className='py-4 text-sm text-[#fff]'>About</li>
               </Link>
-              <Link href='/'>
+              <Link href='/#skills'>
                 <li className='py-4 text-sm text-[#fff]'>Skills</li>
               </Link>
-              <Link href='/'>
+              <Link href='/#projects'>
                 <li className='py-4 text-sm text-[#fff]'>Projects</li>
               </Link>
-              <Link href='/'>
+              <Link href='/#contact'>
                 <li className='py-4 text-sm text-[#fff] '>Contact</li>
               </Link>
             </ul>

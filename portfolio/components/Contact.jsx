@@ -10,7 +10,7 @@ import Link from 'next/link'
 
 const Contact = () => {
   return (
-    <div className='w-full lg:h-screen'>
+    <div id='contact' className='w-full lg:h-screen'>
         <div className='max-w-[1240px] m-auto px-2 py-16 w-full'>
             <p className='text-xl trackingwidest uppercase text-[#60c2a9]'>
                 Contact
@@ -46,13 +46,17 @@ const Contact = () => {
                             </p>
                             <div className='flex items-center justify-between py-4'>
                                 <div className='rounded-full shadow-inner shadow-[#3e76ec]  p-6 cursor-pointer hover:scale-110 ease-in duration-300 hover:shadow-lg hover:shadow-[#3e76ec] m-[-4px]'>
-                                    <FaLinkedinIn size={25} />
+                                    <Link href='https://www.linkedin.com/in/grigorios-paschalidis-b62944167/'>
+                                        <FaLinkedinIn size={25} />
+                                    </Link>
                                 </div>
                                 <div className='rounded-full shadow-inner  shadow-[#ffce01] p-6 cursor-pointer hover:scale-110 ease-in duration-300 hover:shadow-lg hover:shadow-[#ffce01] m-[-4px]'>
                                     <FaInstagramSquare size={25} />
                                 </div>
                                 <div className='rounded-full shadow-inner shadow-[#000000] p-6 cursor-pointer hover:scale-110 ease-in duration-300 hover:shadow-lg hover:shadow-[#000000] m-[-4px]'>
-                                    <FaGithub size={25} />
+                                    <Link href='https://github.com/GrigPasch'>
+                                        <FaGithub size={25} />
+                                    </Link>
                                 </div>
                                 <div className='rounded-full shadow-inner shadow-[#179a13] p-6 cursor-pointer hover:scale-110 ease-in duration-300 hover:shadow-lg hover:shadow-[#179a13] m-[-6px]'>
                                     <AiOutlineMail size={25} />
