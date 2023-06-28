@@ -2,6 +2,8 @@
 import React from 'react'
 import Image from 'next/image'
 import connectImg from '../public/assets/skills/connect.webp'
+import { useState, useRef } from 'react'
+import emailjs from '@emailjs/browser'
 import { FaLinkedinIn, FaInstagramSquare, FaGithub } from 'react-icons/fa'
 import { BsPersonLinesFill } from 'react-icons/bs'
 import { AiOutlineMail } from 'react-icons/ai'
@@ -9,6 +11,40 @@ import {HiOutlineChevronDoubleUp} from 'react-icons/hi'
 import Link from 'next/link'
 
 const Contact = () => {
+    const formRef = useRef();
+    const [loading, setLoading] = useState(false);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForm({ ...form, [name]: value })
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setLoading(true);
+        emailjs.send('service_8vbrxjp', 'template_m90bid1', {from_name: form.name, to_name: 'Greg', from_email: form.email, to_email: 'gregpasch8@gmail.com', message: form.message}, '85O6bt9zzNGBt_KO0')
+        .then(() => {
+            setLoading(false);
+            alert('Thank you for contacting me. I will try to get back to you as soon as possible friend :)');
+
+            setForm({
+                name: '',
+                email: '',
+                message: '',
+            })
+        },(error) => {
+            setLoading(false);
+            console.log(error)
+            alert('Something went wrong.')
+          })
+    };
+
+    const [form, setForm] = useState({
+        name: '',
+        email: '',
+        message: '',
+    })
+
   return (
     <div id='contact' className='w-full lg:h-screen'>
         <div className='max-w-[1240px] m-auto px-2 py-16 w-full'>
@@ -71,43 +107,23 @@ const Contact = () => {
                  {/* right side */}
                 <div className='col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
                     <div className='py-4'>
-                        <form>
-                            <div className='grid md:grid-cols-2 gap-4 w-full py-2'>
-                                <div className='flex flex-col'>
-                                    <label className='uppercase text-sm py-2'>
-                                        Name
-                                    </label>
-                                    <input className='border-2 rounded-lg p-3 flex border-gray-300' type='text'/>
-                                </div>
-                                <div className='flex flex-col py-2'>
-                                    <label className='uppercase text-sm py-2'>
-                                        Telephone number
-                                    </label>
-                                    <input className='border-2 rounded-lg p-3 flex border-gray-300' type='tel'/>
-                                </div>
-                            </div>
-                            <div className='flex flex-col py-2'> 
-                                <label className='uppercase text-sm py-2'>
-                                    E-mail
-                                </label>
-                                <input className='border-2 rounded-lg p-3 flex border-gray-300' type='email'/>
-                            </div>
-                            <div className='flex flex-col py-2'>
-                                <label className='uppercase text-sm py-2'>
-                                    Subject
-                                </label>
-                                <input className='border-2 rounded-lg p-3 flex border-gray-300' type='text'/>
-                            </div>
-                            <div className='flex flex-col py-2'>
-                                <label className='uppercase text-sm py-2'>
-                                    Message
-                                </label>
-                                <textarea className='border-2 rounded-lg p-3 border-gray-300 ' rows='10' ></textarea>
-                            </div>             
-                            <button className= 'w-full p-4 text-gray-100 mt-4 '>
-                                    Hit me up!
-                            </button>
-                        </form>
+                    <form ref = {formRef} onSubmit = {handleSubmit} className = 'mt-12 flex flex-col gap-8'>
+                        <label className = 'flex flex-col '>
+                            <span className = 'text-black font-medium mb-4'>Your Name</span>
+                            <input type = "text" name = "name" value = {form.name} onChange = {handleChange} placeholder = "What is your name" className = 'bg-tertiary py-4 px-6 placeholder:text-secondary text-black rounded-lg outline outline-gray-200 font-medium'/>
+                        </label>
+                        <label className = 'flex flex-col'>
+                            <span className = 'text-black font-medium mb-4'>Your e-mail</span>
+                            <input type = "email" name = "email" value = {form.email} onChange = {handleChange} placeholder = "What is your e-mail" className = 'bg-tertiary py-4 px-6 placeholder:text-secondary text-black rounded-lg outline outline-gray-200 font-medium'/>
+                        </label>
+                        <label className = 'flex flex-col'>
+                            <span className = 'text-black font-medium mb-4'>Your message</span>
+                            <textarea rows = "7" name = "message" value = {form.message} onChange = {handleChange} placeholder = "What do you want to contact me about." className = 'bg-tertiary py-4 px-6 placeholder:text-secondary text-black rounded-lg outline outline-gray-200  font-medium'/>
+                        </label>
+                        <button className= 'w-full p-4 text-gray-100 mt-4 '>
+                            {loading? 'Sending Message' : 'Hit me up!'}
+                        </button>
+                    </form>
                     </div>  
                 </div>
             </div>
